@@ -2,13 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.sonatype.oss</groupId>
-    <artifactId>oss-parent</artifactId>
-    <version>7</version>
+    <groupId>se.infomaker</groupId>
+    <artifactId>infomaker</artifactId>
+    <version>2</version>
   </parent>
 
   <groupId>net.jodah</groupId>
-  <artifactId>lyra</artifactId>
+  <artifactId>lyra-infomaker</artifactId>
   <version>0.5.3-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>Lyra</name>

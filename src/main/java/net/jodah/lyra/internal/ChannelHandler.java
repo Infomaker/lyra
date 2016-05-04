@@ -76,10 +76,17 @@ public class ChannelHandler extends RetryableResource implements InvocationHandl
   private class ChannelShutdownListener implements ShutdownListener {
     @Override
     public void shutdownCompleted(ShutdownSignalException e) {
+      log.info("Channel shutdown completed, reason: {}", e.getMessage());
       channelShutdown();
       if (!e.isInitiatedByApplication()) {
         log.error("Channel {} was closed unexpectedly", ChannelHandler.this);
         lastShutdownSignal = e;
+        log.error("Exception is closure: {}", Exceptions.isConnectionClosure(e));
+        log.error("Can recover: {}", canRecover());
+        log.error("Exception class: {}", e.getClass().getName());
+        if (e.getReference() != null) {
+           log.error("Exception reference class: {}", e.getReference().getClass().getName());
+        }
         if (!Exceptions.isConnectionClosure(e) && canRecover())
           ConnectionHandler.RECOVERY_EXECUTORS.execute(new Runnable() {
             @Override
