@@ -9,7 +9,7 @@
 
   <groupId>net.jodah</groupId>
   <artifactId>lyra-infomaker</artifactId>
-  <version>0.5.3-SNAPSHOT</version>
+  <version>0.5.3</version>
   <packaging>jar</packaging>
   <name>Lyra</name>
   <url>http://github.com/jhalterman/lyra/</url>
